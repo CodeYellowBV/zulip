@@ -825,11 +825,12 @@ export function handle_keydown(event, textarea) {
     const isBold = code === 66;
     const isItalic = code === 73 && !event.shiftKey;
     const isLink = code === 76 && event.shiftKey;
+    const isGiphy = giphy.is_giphy_enabled() && code === 71;
 
     // detect Cmd and Ctrl key
     const isCmdOrCtrl = common.has_mac_keyboard() ? event.metaKey : event.ctrlKey;
 
-    if ((isBold || isItalic || isLink) && isCmdOrCtrl) {
+    if ((isBold || isItalic || isLink || isGiphy) && isCmdOrCtrl) {
         const range = textarea.range();
         function wrap_text_with_markdown(prefix, suffix) {
             if (!document.execCommand("insertText", false, prefix + range.text + suffix)) {
@@ -873,6 +874,9 @@ export function handle_keydown(event, textarea) {
             } else {
                 textarea.caret(textarea.caret() - 6);
             }
+        }
+        if (isGiphy) {
+            $(".compose_gif_icon").trigger("click");
         }
 
         compose_ui.autosize_textarea(textarea);

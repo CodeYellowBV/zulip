@@ -111,6 +111,7 @@ below, and add more to your repertoire as needed.
 * **Insert italic text**: `*italic*` or `Ctrl + I`
 * **Insert bold text**: `**bold**` or `Ctrl + B`
 * **Insert link**: `[Zulip website](https://zulip.org)` or `Ctrl + Shift + L`
+* **Insert gif**: `Ctrl + G`
 
 * **Cancel compose**: `Esc` or `Ctrl + [` — Close the compose box and save
   the unsent message as a draft.
